@@ -23,7 +23,7 @@ export const sendEmail = async ({email,emailType,userId} : any) => {
            port: 2525,
            auth: {
            user: "140d45df931d5f",
-           pass: "********6a7c"
+           pass: process.env.MAILTRAP_PASSWORD
            }
            });
 
@@ -31,7 +31,7 @@ export const sendEmail = async ({email,emailType,userId} : any) => {
             from: 'chat@ai.com', // sender address
             to: email,
             subject: emailType === "VERIFY" ? "Verify your email" : "Reset your password",
-            html: `<p>Click<a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken} ">here</a> to ${emailType === "VERIFY" ? "verify your email" : "Rese your password"}
+            html: `<p>Click <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}"> here</a> to ${emailType === "VERIFY" ? "verify your email" : "Rese your password"}
             or copy and paste the link below in your browser.<br/>${process.env.DOMAIN}/verifyemail?token=${hashedToken}
             </p>`,
           }
