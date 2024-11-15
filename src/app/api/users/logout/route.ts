@@ -6,7 +6,7 @@ connect()
 
 export async function GET (request : NextRequest) {
      try {
-        const response = NextResponse.json({message : "LogOut Successful"},{Success : true})
+        const response = NextResponse.json({message : "LogOut Successful"},{status : 200})
 
         response.cookies.set("token","",{httpOnly : true , expires : new Date(0)})
        
